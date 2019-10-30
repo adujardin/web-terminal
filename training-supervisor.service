@@ -1,0 +1,12 @@
+[Unit]
+Description=Training supervisor
+After=network-online.target
+ 
+[Service]
+Type=simple
+
+ExecStart=ttyd -p 4563 -c user:passwd tmux new -A -s ttyd login
+Restart=always
+ 
+[Install]
+WantedBy=multi-user.target
