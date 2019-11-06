@@ -9,4 +9,6 @@ rm -rf ${clone_folder}
 
 sudo snap install tmux --classic
 
-systemctl enable training-supervisor.service
+sudo cp training-supervisor.service /etc/systemd/system/
+sudo systemctl start training-supervisor
+sudo systemctl enable training-supervisor

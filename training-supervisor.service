@@ -5,7 +5,7 @@ After=network-online.target
 [Service]
 Type=simple
 
-ExecStart=ttyd -p 4563 -c user:passwd tmux new -A -s ttyd login
+ExecStart=/usr/local/bin/ttyd -p 4563 -c user:password /snap/bin/tmux new -A -s /usr/local/bin/ttyd login
 Restart=always
  
 [Install]
