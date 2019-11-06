@@ -50,7 +50,7 @@ sudo apt-get install cmake g++ pkg-config git vim-common libwebsockets-dev libjs
 git clone https://github.com/tsl0922/ttyd.git
 cd ttyd && mkdir build && cd build
 cmake ..
-make && make install
+make && sudo make install
 ```
 
 2. Install tmux
@@ -64,10 +64,10 @@ sudo snap install tmux --classic
 ```bash
 TTYD_PORT=4563
 TTYD_USER="user"
-TTYD_PORT="passwd"
+TTYD_PASSWD="passwd"
 TTYD_CMD="login" # can also be 'bash' or whatever command
 
-ttyd -p ${TTYD_PORT} -c ${TTYD_USER}:${TTYD_PORT} tmux new -A -s ttyd ${TTYD_CMD}
+ttyd -p ${TTYD_PORT} -c ${TTYD_USER}:${TTYD_PASSWD} tmux new -A -s ttyd ${TTYD_CMD}
 ```
 
 The authentication is optional but recommended.
