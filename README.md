@@ -67,7 +67,7 @@ TTYD_USER="user"
 TTYD_PASSWD="passwd"
 TTYD_CMD="login" # can also be 'bash' or whatever command
 
-ttyd -p ${TTYD_PORT} -c ${TTYD_USER}:${TTYD_PASSWD} tmux new -A -s ttyd ${TTYD_CMD}
+sudo ttyd -p ${TTYD_PORT} -c ${TTYD_USER}:${TTYD_PASSWD} tmux new -A -s ttyd ${TTYD_CMD}
 ```
 
 The authentication is optional but recommended.
