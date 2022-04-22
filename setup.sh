@@ -7,6 +7,7 @@
 #cd ../..
 #rm -rf ${clone_folder}
 wget https://github.com/tsl0922/ttyd/releases/download/1.6.3/ttyd.x86_64 -q -O ttyd
+sudo chmod +x ttyd
 sudo mv ttyd /usr/local/bin/
 
 sudo snap install tmux --classic
