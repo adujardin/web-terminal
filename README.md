@@ -12,30 +12,12 @@ The 2 clients have full control over the server and are sending commands on the 
 
 ## Use case
 
-- Watch and control the training process launched from a terminal without having to plug a monitor on the training server
-- Tensorboard is nice but not enough to actually control the process, it only *reports* the information.
+- Control a server from a web browser with full uninterruptible bash terminal
 
-### Why ? 
+### How it's done
 
-The current alternatives solutions are :
-
-- SSH: inconvenient since I need to be able to close the terminal/reboot whatever without stopping the training
-- Jupyter notebooks: can't close and reopen, the training will continue but without any log or control
-- Bash with GUI: need screen and GUI. It requires physically going to the training server to check the status
-
-
-### Solution 
-
--> Start a process and connect from a browser to a *unique* bash using [ttyd](https://github.com/tsl0922/ttyd) and `tmux`. 
-Every client connects to the **same** bash (it support authentication). This means anybody can watch and control simultaneously the process/terminal (with the output) without restrictions, such as closing the window...
-
-
-### Note
-
-My use case consists of a local network with multiple machines, the training servers running Ubuntu and the workstations. Although a VPN makes it very convenient to check on the training process remotely (outside the LAN).
-
-The assumption is that the training server is pingable from the clients (and 1 training == 1 server).
-
+-> Start a process and connect from a browser to a *unique* bash using [ttyd](https://github.com/tsl0922/ttyd) and `tmux`.
+Every client connects to the **same** bash (it support authentication). This means anybody can watch and control simultaneously the same process/terminal (with the output)
 
 ## Setup (server side)
 
@@ -43,7 +25,7 @@ The assumption is that the training server is pingable from the clients (and 1 t
 
 No setup required on the client-side, only on the training server :
 
-1. Install from source ttyd 
+1. Install from source ttyd
 
 ```bash
 sudo apt-get install cmake g++ pkg-config git vim-common libwebsockets-dev libjson-c-dev libssl-dev
@@ -67,7 +49,7 @@ TTYD_USER="user"
 TTYD_PASSWD="passwd"
 TTYD_CMD="login" # can also be 'bash' or whatever command
 
-sudo ttyd -p ${TTYD_PORT} -c ${TTYD_USER}:${TTYD_PASSWD} tmux new -A -s ttyd ${TTYD_CMD}
+sudo ttyd -T xterm -p ${TTYD_PORT} -c ${TTYD_USER}:${TTYD_PASSWD} tmux new -A -s ttyd ${TTYD_CMD}
 ```
 
 The authentication is optional but recommended.
