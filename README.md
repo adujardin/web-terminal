@@ -1,4 +1,4 @@
-# Training supervisor
+# Web Terminal
 
 <p align="center">
     <a href="preview/video_preview.mp4">
@@ -63,3 +63,14 @@ Alternatively the [setup.sh](setup.sh) script can be used to install the require
 On the client(s) open a browser to the machine IP or name like: `http://training-server-name:4563/`
 
 Enter the authentication if needed (the first time) and that's it!
+
+Since this is using tmux, all shortcuts are working, such as opening multiple panel like:
+
+- Ctrl + b + % to split the current pane vertically.
+- Ctrl + b + " to split the current pane horizontally.
+- Ctrl + b + x to close the current pane.
+- Ctrl + up arrow/down arrow to navigate between pane
+
+## Security caution
+
+This is meant for trusted networks, keep it mind that it basically expose a root terminal access to the server remotely
