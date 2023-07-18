@@ -1,18 +1,16 @@
 # Web Terminal
 
+Control a server from a web browser with full uninterruptible bash terminal
+
 <p align="center">
     <a href="preview/video_preview.mp4">
     <img src="preview/gif_readme.gif", width="800">
     </a>
 </p>
 
-Heavily compressed gif preview in operation, [full video here](preview/video_preview.mp4).
+Gif preview in operation, [full video here](preview/video_preview.mp4).
 
 The 2 clients have full control over the server and are sending commands on the same terminal while beeing on separate machines on the same network.
-
-## Use case
-
-- Control a server from a web browser with full uninterruptible bash terminal
 
 ### How it's done
 
@@ -25,14 +23,12 @@ Every client connects to the **same** bash (it support authentication). This mea
 
 No setup required on the client-side, only on the training server :
 
-1. Install from source ttyd
+1. Install ttyd
 
 ```bash
-sudo apt-get install cmake g++ pkg-config git vim-common libwebsockets-dev libjson-c-dev libssl-dev
-git clone https://github.com/tsl0922/ttyd.git
-cd ttyd && mkdir build && cd build
-cmake ..
-make && sudo make install
+wget https://github.com/tsl0922/ttyd/releases/download/1.7.3/ttyd.x86_64 -q -O ttyd
+sudo chmod +x ttyd
+sudo mv ttyd /usr/local/bin/
 ```
 
 2. Install tmux
